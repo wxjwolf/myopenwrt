@@ -1,13 +1,10 @@
-# Copyright (C) 2018-2019 Lienol
-#
-# This is free software, licensed under the Apache License, Version 2.0 .
-#
+# Copyright (C) 2020-2023 Hyy2001X <https://github.com/Hyy2001X>
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-adguardhome
-PKG_VERSION:=1.8
-PKG_RELEASE:=11
+PKG_VERSION:=1.0
+PKG_RELEASE:=20230123
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
@@ -17,14 +14,13 @@ define Package/luci-app-adguardhome
 	SECTION:=luci
 	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
-	TITLE:=LuCI app for adguardhome
-	PKG_MAINTAINER:=<https://github.com/rufengsuixing/luci-app-adguardhome>
+	TITLE:=LuCI support for AdGuard Home [Modified by Hyy2001]
 	PKGARCH:=all
-	DEPENDS:=+!wget&&!curl:wget
+	DEPENDS:=+!wget-ssl&&!curl:wget-ssl +xz-utils +xz
 endef
 
 define Package/luci-app-adguardhome/description
-	LuCI support for adguardhome
+	LuCI support for AdGuard Home
 endef
 
 define Build/Prepare
